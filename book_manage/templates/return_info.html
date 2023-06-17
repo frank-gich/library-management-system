@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="table-container">
+    <table class="styled-table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer name</th>
+                <th scope="col">N˚</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Borrowed data</th>
+                <th scope="col">Returned Date</th>
+                <th scope="col">Returned</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+    {% for return_info in return_infos %}
+        <tbody>
+            <tr class='active-row'>
+            <td>{{ return_info.id }}</td>
+            <td>{{ return_info.customer_name }}</td>
+            <td>{{ return_info.customer_id }}</td>
+            <td>{{ return_info.book_title }}</td>
+            <td>{{ return_info.book_author }}</td>
+            <td>{{ return_info.borrowed_date.strftime('%Y-%m-%d') }}</td>
+            <td>{{ return_info.returned_date.strftime('%Y-%m-%d') }}</td>
+            <td>Yes</td>
+            <td><a class='delete-link' href="{{ url_for('delete_return_info', return_info_id=return_info.id ) }}">Delete</a></td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+
+
+
+
+
