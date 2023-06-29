@@ -6,8 +6,8 @@ from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from book_manage import app, bcrypt, db
-from book_manage.forms import Borrow, LoginForm, RegistrationForm, Upload
-from book_manage.models import Admin, Borrowed, Returned, Uploaded
+from book_manage.forms import all
+from book_manage.models import all
 
 
 @app.route('/')
