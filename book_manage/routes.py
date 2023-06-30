@@ -6,8 +6,8 @@ from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
 from book_manage import app, bcrypt, db
-from book_manage.forms import all
-from book_manage.models import all
+from book_manage.forms import Borrow, LoginForm, RegistrationForm, Upload
+from book_manage.models import Admin, Borrowed, Returned, Uploaded
 
 
 @app.route('/')
@@ -41,7 +41,7 @@ def admin_books(admin):
         .order_by(Uploaded.id.desc())\
         .paginate(page=page, per_page=4)
         
-    return render_template('admin_books.html', title='Library-books-management', admin=admin, books=books)
+    return render_template('admin_books.html', title='Library-management', admin=admin, books=books)
 
 @app.route('/book/<int:book_id>', methods=['GET', 'POST'])
 @login_required
@@ -221,7 +221,7 @@ def update(book_id):
         books.author = form.author.data
         books.description = form.description.data
         db.session.commit()
-        flash('Your book have been updated!', 'success')
+        flash('Your book have been added!', 'success')
         
         return redirect(url_for('home'))
     
