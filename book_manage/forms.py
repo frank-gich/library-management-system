@@ -40,7 +40,7 @@ class Upload(FlaskForm):
     author = StringField('Book author')
     description = TextAreaField('Book description')
     
-    submit = SubmitField('Register the book')
+    submit = SubmitField('Register book')
     
 
     

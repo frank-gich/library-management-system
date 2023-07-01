@@ -16,7 +16,7 @@ from book_manage.models import Admin, Borrowed, Returned, Uploaded
 def home():
     page = request.args.get('page', 1, type=int)
     books = Uploaded.query.order_by(Uploaded.id.desc()).paginate(page=page, per_page=4)
-    return render_template('home.html', title='Library-books-management', books=books)
+    return render_template('home.html', title='Library-management', books=books)
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -26,11 +26,11 @@ def search():
         searched_book = request.form['searched_book']
         formatted_search = "%{}%".format(searched_book)
         books = Uploaded.query.filter(Uploaded.title.like(formatted_search)).all()
-        return render_template('search.html', title='Library-books-management', books=books, searched_book=searched_book)
+        return render_template('search.html', title='Library-management', books=books, searched_book=searched_book)
     else:
         page = request.args.get('page', 1, type=int)
         books = Uploaded.query.order_by(Uploaded.id.desc()).paginate(page=page, per_page=4)
-        return render_template('home.html', title='Library-books-management', books=books)
+        return render_template('home.html', title='Library-management', books=books)
 
 @app.route('/user/<string:admin>')
 @login_required
@@ -199,7 +199,7 @@ def login():
             return redirect(next_page) if next_page else redirect(url_for('home'))
     
         else:
-            flash('Login Unsuccessfull. Please check email and password', 'danger')
+            flash('Login Unsuccessfull. Please check your email and password', 'danger')
         
     return render_template('login.html', title='Login', form=form)
 
@@ -221,7 +221,7 @@ def update(book_id):
         books.author = form.author.data
         books.description = form.description.data
         db.session.commit()
-        flash('Your book have been added!', 'success')
+        flash('Your book has been added!', 'success')
         
         return redirect(url_for('home'))
     
@@ -239,5 +239,5 @@ def delete_post(book_id):
     db.session.delete(book)
     db.session.commit()
 
-    flash('Your book have been deleted!', 'success')
+    flash('Your book has been deleted!', 'success')
     return redirect(url_for('home'))

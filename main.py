@@ -1,4 +1,5 @@
-from book_manage import app
+
+from book_manage import *
 
 if __name__ == '__main__':
     app.run(app.run(host="localhost", port=8000, debug=True))

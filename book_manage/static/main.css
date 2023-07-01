@@ -9,7 +9,7 @@
     --white-clr-alt: #f0f8ff;
     --white-input-clr: #f3f8fd;
     --gray-clr: #35383b;
-    --link-clr: #d0dbe7;
+    --link-clr: #030405;
     --error-clr: #ea1601;
     --warning-clr: #fad202;
     --success-clr: #64bc26;
@@ -493,7 +493,8 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 3rem;
+        margin-top: 4rem;
+        color: #030405;
     }
     .form-control {
         width: 150%;
