@@ -1,9 +1,8 @@
 
 from datetime import datetime
 
+from libraly_admin import db, login_manager
 from flask_login import UserMixin
-
-from book_manage import db, login_manager
 
 
 @login_manager.user_loader

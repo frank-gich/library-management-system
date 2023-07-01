@@ -2,12 +2,11 @@
 
 from datetime import datetime
 
+from libraly_admin import app, bcrypt, db
+from libraly_admin.forms import Borrow, LoginForm, RegistrationForm, Upload
+from libraly_admin.models import Admin, Borrowed, Returned, Uploaded
 from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
-
-from book_manage import app, bcrypt, db
-from book_manage.forms import Borrow, LoginForm, RegistrationForm, Upload
-from book_manage.models import Admin, Borrowed, Returned, Uploaded
 
 
 @app.route('/')

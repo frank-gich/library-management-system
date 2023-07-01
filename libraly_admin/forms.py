@@ -4,7 +4,7 @@ from wtforms.fields.html5 import DateField
 from wtforms.validators import (DataRequired, Email, EqualTo, Length,
                                 ValidationError)
 
-from book_manage.models import Admin
+from libraly_admin.models import Admin
 
 
 # Register forms

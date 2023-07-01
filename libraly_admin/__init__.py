@@ -23,5 +23,5 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
-from book_manage import routes
-from book_manage.forms import Borrow, LoginForm, RegistrationForm, Upload
+from libraly_admin import routes
+from libraly_admin.forms import Borrow, LoginForm, RegistrationForm, Upload
